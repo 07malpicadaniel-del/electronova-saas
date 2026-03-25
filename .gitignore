@@ -1,0 +1,11 @@
+# Entornos virtuales y secretos
+backend/venv/
+backend/.env
+__pycache__/
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+
+# SO
+.DS_Store
