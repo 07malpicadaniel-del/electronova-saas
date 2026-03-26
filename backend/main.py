@@ -39,3 +39,4 @@ def chat_with_data(request: ChatRequest):
     respuesta = ask_bob(request.pregunta, current_data)
     
     return {"respuesta": respuesta}
+#forzado de actualizacion en render 
