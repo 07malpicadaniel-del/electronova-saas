@@ -15,7 +15,7 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("home"); 
 
   useEffect(() => {
-    axios.get("https://electronova-api-p5gf.onrender.com")
+    axios.get("https://electronova-api-h9f4.onrender.com/api/v1/analyze-sales")
       .then((response) => {
         setData(response.data);
         setLoading(false);
