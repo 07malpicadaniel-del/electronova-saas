@@ -13,8 +13,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://electronova-frontend-7fcl.onrender.com", # El dominio oficial de tu interfaz
-        "http://localhost:3000", # Por si necesitas hacer pruebas locales en el futuro
-        "*" # Respaldo universal para evitar cualquier bloqueo residual
+        "http://localhost:3000" # Por si necesitas hacer pruebas locales en el futuro
     ], 
     allow_credentials=True,
     allow_methods=["*"],
