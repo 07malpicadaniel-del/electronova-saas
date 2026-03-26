@@ -8,14 +8,11 @@ from bob_architect import ask_bob
 
 app = FastAPI(title="ElectroNova API Modular")
 
-# --- CONFIGURACIÓN DE CORS (La Lista VIP) ---
+# --- CONFIGURACIÓN DE CORS (A prueba de balas) ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://electronova-frontend-7fcl.onrender.com", # El dominio oficial de tu interfaz
-        "http://localhost:3000" # Por si necesitas hacer pruebas locales en el futuro
-    ], 
-    allow_credentials=True,
+    allow_origins=["*"],     # 1. Volvemos a permitir cualquier origen
+    allow_credentials=False, # 2. ¡LA CLAVE ESTÁ AQUÍ! Lo apagamos porque no usamos cookies
     allow_methods=["*"],
     allow_headers=["*"],
 )
