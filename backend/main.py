@@ -8,9 +8,14 @@ from bob_architect import ask_bob
 
 app = FastAPI(title="ElectroNova API Modular")
 
+# --- CONFIGURACIÓN DE CORS (La Lista VIP) ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], 
+    allow_origins=[
+        "https://electronova-frontend-7fcl.onrender.com", # El dominio oficial de tu interfaz
+        "http://localhost:3000", # Por si necesitas hacer pruebas locales en el futuro
+        "*" # Respaldo universal para evitar cualquier bloqueo residual
+    ], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -22,7 +27,7 @@ class ChatRequest(BaseModel):
 
 @app.get("/")
 def health_check():
-    return {"status": "online", "message": "Arquitectura modular lista"}
+    return {"status": "online", "message": "Arquitectura modular lista y en la nube"}
 
 @app.get("/api/v1/analyze-sales")
 def analyze_sales():
@@ -31,9 +36,10 @@ def analyze_sales():
 
 @app.post("/api/v1/chat")
 def chat_with_data(request: ChatRequest):
-    # 1. Obtenemos los datos frescos
+    # 1. Obtenemos los datos frescos de pandas
     current_data = generate_business_stats()
-    # 2. Le pasamos la pregunta y los datos a Bob
+    
+    # 2. Le pasamos la pregunta y los datos a bob
     respuesta = ask_bob(request.pregunta, current_data)
     
     return {"respuesta": respuesta}
