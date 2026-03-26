@@ -16,7 +16,7 @@ export default function Bob({ theme }: { theme: any }) {
     setIsTyping(true);
 
     try {
-      const response = await axios.post("https://electronova-api-h9f4.onrender.com/api/v1/chat", { pregunta: userMsg });
+      const response = await axios.post("https://electronova-api-p5gf.onrender.com/api/v1/chat", { pregunta: userMsg });
       setChatHistory(prev => [...prev, { role: "bob", content: response.data.respuesta }]);
     } catch (error) {
       setChatHistory(prev => [...prev, { role: "bob", content: "Error de conexión con el motor analítico." }]);
